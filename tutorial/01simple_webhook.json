@@ -1,0 +1,127 @@
+{
+  "name": "Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "simple-reponse",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ac0cda54-2d8c-4669-baee-fc09b1867beb",
+      "name": "Webhook",
+      "webhookId": "2d2b7941-baab-4ced-8333-71ed73459e54"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1wiGAlOamMvqnfdWXZdwli6U3FAkKrBQhg9ggLOht9aA",
+          "mode": "list",
+          "cachedResultName": "N8N workflow",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wiGAlOamMvqnfdWXZdwli6U3FAkKrBQhg9ggLOht9aA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Foglio1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wiGAlOamMvqnfdWXZdwli6U3FAkKrBQhg9ggLOht9aA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $json.body.date }}",
+            "category": "={{ $json.body.category }}",
+            "description": "={{ $json.body.description }}"
+          },
+          "matchingColumns": [
+            "message"
+          ],
+          "schema": [
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "a9ae9c2d-735f-4b08-b3c1-a938e39daec1",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "kTtiDgdSXotylp71",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "2f47747c-aac3-47a5-9d55-366b2eef9408",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "769be32d18d22dff86ba108e8fa1ad15baa04aafebc0a5c95b41d793968fa73e"
+  },
+  "id": "-gPVbBKA6AuYNQ1Q5W_zg",
+  "tags": []
+}
