@@ -1,8 +1,11 @@
 import requests
 from datetime import datetime
+from dotenv import load_dotenv
 
-# URL del tuo endpoint n8n (modifica con il tuo URL)
-n8n_url = "https://misterkilgore.app.n8n.cloud/webhook-test/simple-reponse"
+# --- Variabili d'ambiente --- #
+
+load_dotenv()
+n8n_url = os.getenv("N8N_URL")
 
 # --- Esempio di richiesta GET ---
 def get_request():
